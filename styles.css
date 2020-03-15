@@ -1,0 +1,272 @@
+html, body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a:link, a:visited {
+  color: rgb(66, 139, 202);
+  text-decoration: none;
+}
+
+.header {
+  background: url(header/pattern.jpg) top left repeat;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  margin-bottom: 50px;
+}
+
+.footer {
+  background: url(header/pattern.jpg) top left repeat;
+  margin-top: 50px;
+  height: 60px;
+  border-top: 1px solid rgb(0, 0, 0);
+}
+
+.header .title {
+  padding-top: 15px;
+  padding-left: 40px;
+}
+
+.title .main {
+  font-size: 21px;
+  line-height: 31px;
+  font-weight: 500;
+}
+
+.title .sub {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.title .link {
+  background-color: rgb(255, 255, 255);
+  padding: 5px 10px;
+}
+
+.title a {
+  color: rgb(0, 0, 0);
+}
+
+.header .menu {
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  max-width: 1000px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header .menu .entry {
+  font-size: 14px;
+  margin-left: 20px;
+  padding: 5px;
+  margin-bottom: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.0);
+}
+
+.header .menu a {
+  color: rgb(66, 139, 202);
+}
+
+.header .menu .on {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 0, 0);
+  border-bottom-color: rgb(255, 255, 255);
+}
+
+.header .menu .on a {
+  color: rgb(0, 0, 0);
+}
+
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src: url("header/glyphicons-halflings-regular.woff2") format("woff2");
+}
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-folder-open:before {
+  content: "\e118";
+}
+
+.footer .copyright {
+  margin-top: 6px;
+  margin-left: 40px;
+  font-size: 12px;
+}
+
+.page {
+  margin-left: 40px;
+  margin-right: 40px;
+  max-width: 1000px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 33px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.page .profil .table {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-row-gap: 10px;
+}
+
+.page .profil .table div {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.page .kontakt label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.page .kontakt input {
+  width: 100%;
+  font-size: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+.page .kontakt .submitButton {
+  width: auto;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  background-color: rgb(85, 85, 85);
+  border: 1px solid rgb(85, 85, 85);
+  border-radius: 4px;
+}
+
+.page .kontakt textarea {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.page .start .gallery {
+  display: grid;
+  grid-template-columns: 160px 160px 160px 160px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .page .start .gallery {
+    grid-template-columns: 160px 160px;
+  }
+}
+
+.page .start .gallery img {
+  width: 160px;
+  height: 160px;
+  filter: grayscale(100%);
+}
+
+.page .start .gallery img:hover {
+  width: 160px;
+  height: 160px;
+  filter: none;
+}
+
+.page .projekte .table {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.page .projekte .table {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  border: 1px solid rgb(221, 221, 221);
+}
+
+.page .projekte .table div {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px;
+  border-top: 1px solid rgb(221, 221, 221);
+  border-right: 1px solid rgb(221, 221, 221);
+}
+
+.page .projekte .table div:nth-child(-n+5) {
+  border-top: none;
+  font-weight: 700; 
+}
+
+.page .projekte .table div:nth-child(5n) {
+  border-right: none;
+}
+
+.projekte-detail .carouselClip {
+  max-width: 1000px;
+  overflow: hidden;
+}
+
+.projekte-detail .carousel {
+  display: flex;
+  font-size: 12px;
+  line-height: 17px;
+  transition: transform 1s;
+}
+
+.projekte-detail .carousel img {
+  height: 280px;
+}
+
+.projekte-detail .carousel > div {
+  border: 1px solid rgb(221, 221, 221);
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.projekte-detail .carouselNav {
+  display: flex;
+}
+
+.projekte-detail .carouselNav > div {
+  border: 1px solid rgb(221, 221, 221);
+  margin-top: 5px;
+  margin-right: 5px;
+  font-size: 24px;
+  line-height: 30px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.page > div {
+  display: none;
+}
+
+.page > .on {
+  display: block;
+}
