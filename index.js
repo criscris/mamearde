@@ -1,10 +1,10 @@
 const importHTML = () => {
-  [...document.querySelectorAll('[data-source]')].forEach(element => {
+  return Promise.all([...document.querySelectorAll('[data-source]')].map(element => {
     const source = element.getAttribute('data-source');
-    fetch(source)
+    return fetch(source)
       .then(response => response.text())
       .then(text => element.innerHTML = text);
-  });
+  }));
 };
 
 const moveCarousel = (carouselId, offsetNorm) => {
@@ -49,8 +49,59 @@ const displayPage = () => {
   });
 };
 
+const shuffleArray = array => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+};
+
+const initGallery = () => {
+  const gallery = document.querySelector('#startGallery');
+  const children = shuffleArray([...document.querySelectorAll('#startGallery > div')])
+  gallery.innerHTML = null;
+  children.forEach(child => gallery.appendChild(child));
+};
+
+const contact = () => {
+  const form = document.querySelector('#contactForm');
+  const elements = form.elements;
+  const name = form.elements['name'].value;
+  const email = form.elements['email'].value;
+  const subject = form.elements['emailSubject'].value;
+  const message = form.elements['message'].value;
+  console.log('name', name); 
+  console.log('email', email); 
+  console.log('subject', subject); 
+  console.log('message', message);
+
+  const response = document.querySelector('#contactForm > .response');
+
+  Email.send({
+    SecureToken : "a1f880c4-f8da-4949-b43a-ff0d949b839b",
+    To : 'djwqidjqoi@trashmail.com',
+    From : email,
+    Subject : subject,
+    Body : name + '\n' + email + '\n\n' + message,
+  })
+  .then(message => {
+    console.info(message);
+    response.innerHTML = 'Nachricht gesendet.';
+  })
+  .catch(error => {
+    console.error(error);
+    response.innerHTML = 'Nachricht konnte nicht gesendet werden.';
+  });
+
+  
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  importHTML();
+  importHTML()
+    .then(initGallery)
   displayPage();
 });
 

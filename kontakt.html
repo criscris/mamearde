@@ -1,4 +1,6 @@
-<h1>Kontakt</h1>
+<h2>Kontakt</h2>
+
+<p>[Einführender Text]</p>
 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et 
 dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet 
 clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, 
@@ -6,23 +8,24 @@ consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea 
 takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
-<form action="/" method="post" novalidate="novalidate">
-  <label for="yourName">Ihr Name</label><br>
-  <input type="text" name="your-name" value="" 
-    size="40" id="yourName" aria-required="true" aria-invalid="false">
-  <label for="yourEmail">Ihre E-Mail-Adresse</label><br>
-  <input type="email" name="your-email" value=""
-    size="40" id="yourEmail" aria-required="true" aria-invalid="false">
-  <label for="yourSubject">Betreff</label><br>
-  <input type="text" name="your-subject" value=""
-    size="40" id="yourSubject" aria-required="true" aria-invalid="false">
-  <label class="required" for="yourMessage">Ihre Nachricht</label><br>
-  <textarea name="your-message" cols="40" rows="10" 
-    id="yourMessage" aria-required="true" aria-invalid="false"></textarea>
+<form id="contactForm" onsubmit="contact(); return false;" novalidate="novalidate">
+  <label for="name">Ihr Name</label><br>
+  <input type="text" name="name" value="" 
+    size="40" id="name" aria-required="true" aria-invalid="false">
+  <label for="email">Ihre E-Mail-Adresse</label><br>
+  <input type="email" name="subject" value=""
+    size="40" id="email" aria-required="true" aria-invalid="false">
+  <label for="emailSubject">Betreff</label><br>
+  <input type="text" name="emailSubject" value=""
+    size="40" id="emailSubject" aria-required="true" aria-invalid="false">
+  <label class="required" for="message">Ihre Nachricht</label><br>
+  <textarea name="message" cols="40" rows="10" 
+    id="message" aria-required="true" aria-invalid="false"></textarea>
   <input class="submitButton" type="submit" value="Senden"><span class="loader"></span>
   <div class="response"></div>
 </form>
 
+<p>[Abschließender Text]</p>
 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et 
 dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet 
 clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, 
