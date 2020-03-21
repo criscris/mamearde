@@ -73,10 +73,6 @@ const contact = () => {
   const email = form.elements['email'].value;
   const subject = form.elements['emailSubject'].value;
   const message = form.elements['message'].value;
-  console.log('name', name); 
-  console.log('email', email); 
-  console.log('subject', subject); 
-  console.log('message', message);
 
   const response = document.querySelector('#contactForm > .response');
 
@@ -95,8 +91,65 @@ const contact = () => {
     console.error(error);
     response.innerHTML = 'Nachricht konnte nicht gesendet werden.';
   });
+};
 
+const sortTable = (tableId, columnIndex, noOfColumns) => {
+  const table = document.querySelector(tableId);
+  const children = [...document.querySelectorAll(tableId + ' > div')];
+  const header = children.slice(0, noOfColumns);
+  const rows = children.slice(noOfColumns);
+
+  const ColumnState = {
+    None: null,
+    SortUp: 'sortUp',
+    SortDown: 'sortDown',
+  }
+
+  let currentState = ColumnState.None;
+  if (header[columnIndex].classList.contains(ColumnState.SortUp)) {
+    currentState = ColumnState.SortUp;
+  } else if (header[columnIndex].classList.contains(ColumnState.SortDown)) {
+    currentState = ColumnState.SortDown;
+  }
+
+  const nextState = currentState === ColumnState.SortUp ? ColumnState.SortDown : ColumnState.SortUp;
+
+  header.forEach((element, index) => {
+    const classes = element.classList;
+    classes.remove(ColumnState.SortUp);
+    classes.remove(ColumnState.SortDown);
+
+    if (index === columnIndex) {
+      classes.add(nextState);
+    }
+  });
+
+  table.innerHTML = null;
+  header.forEach(child => table.appendChild(child));
+
+  const sortStrings = rows
+    .filter((element, index) => (index - columnIndex) % noOfColumns === 0)
+    .map(element => element.textContent.trim());
+  const sortIndices = sortStrings
+    .map((value, index) => index)
+    .sort((i1, i2) => {
+      const s1 = sortStrings[i1];
+      const s2 = sortStrings[i2];
+      if (s1 == s2) {
+        return 0;
+      }
+      const greaterThan = nextState === ColumnState.SortDown ? s1 < s2 : s1 > s2;
+      return greaterThan ? 1 : -1; 
+    })
+
+  const sortedRows = [];
+  sortIndices.forEach(oldIndex => {
+    for (let i = 0; i < noOfColumns; i++) {
+      sortedRows.push(rows[oldIndex * noOfColumns + i]);
+    }
+  });
   
+  sortedRows.forEach(child => table.appendChild(child));
 }
 
 document.addEventListener('DOMContentLoaded', () => {

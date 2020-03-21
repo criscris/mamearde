@@ -10,48 +10,52 @@ a:link, a:visited {
 }
 
 .header {
-  background: url(header/pattern.jpg) top left repeat;
+  background: url(images/pattern.jpg) top left repeat;
   border-bottom: 1px solid rgb(0, 0, 0);
   margin-bottom: 50px;
 }
 
 .footer {
-  background: url(header/pattern.jpg) top left repeat;
+  background: url(images/pattern.jpg) top left repeat;
   margin-top: 50px;
   height: 60px;
   border-top: 1px solid rgb(0, 0, 0);
 }
 
-.header .title {
-  padding-top: 15px;
-  padding-left: 40px;
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1000px;
 }
 
-.title .main {
+.header .title {
+  padding-top: 15px;
+}
+
+.header .title .main {
   font-size: 21px;
   line-height: 31px;
   font-weight: 500;
 }
 
-.title .sub {
+.header .title .sub {
   font-size: 14px;
   line-height: 24px;
 }
 
-.title .link {
+.header .title .link {
   background-color: rgb(255, 255, 255);
   padding: 5px 10px;
 }
 
-.title a {
+.header .title a {
   color: rgb(0, 0, 0);
 }
 
 .header .menu {
   margin-top: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
-  max-width: 1000px;
   display: flex;
   justify-content: flex-end;
 }
@@ -101,14 +105,7 @@ a:link, a:visited {
 
 .footer .copyright {
   margin-top: 6px;
-  margin-left: 40px;
   font-size: 12px;
-}
-
-.page {
-  margin-left: 40px;
-  margin-right: 40px;
-  max-width: 1000px;
 }
 
 h1 {
@@ -187,7 +184,19 @@ p {
   grid-row-gap: 27px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1040px) {
+  .page .start .gallery {
+    grid-template-columns: 230px 230px 230px;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  .page .start .gallery {
+    grid-template-columns: 230px 230px;
+  }
+}
+
+@media only screen and (max-width: 290px) {
   .page .start .gallery {
     grid-template-columns: 230px 230px;
   }
@@ -205,9 +214,20 @@ p {
   filter: none;
 }
 
-.page .projekte .table {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
+.sort {
+  background-image: url(images/sort.svg);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right: 21px;
+}
+
+.sortUp {
+  background-image: url(images/sortUp.svg);
+}
+
+.sortDown {
+  background-image: url(images/sortDown.svg);
 }
 
 .page .projekte .table {
@@ -232,6 +252,22 @@ p {
 .page .projekte .table div:nth-child(5n) {
   border-right: none;
 }
+
+.page .projekte .table .blue {
+  color: rgb(127,211,248);
+  font-weight: 700;
+}
+
+.page .projekte .table .green {
+  color:rgb(171,219,143);
+  font-weight: 700;
+}
+
+.page .projekte .table .red {
+  color:rgb(196,141,138);
+  font-weight: 700;
+}
+
 
 .projekte-detail .carouselClip {
   max-width: 1000px;
