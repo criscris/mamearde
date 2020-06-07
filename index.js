@@ -24,6 +24,16 @@ const moveCarousel = (carouselId, offsetNorm) => {
 const next = carouselId => moveCarousel(carouselId, 1);
 const previous = carouselId => moveCarousel(carouselId, -1);
 
+const lazyloadImages = (parentElement) => {
+  [...parentElement.querySelectorAll("img")].forEach(image => {
+    const url = image.getAttribute('data-src');
+    if (url) {
+      image.setAttribute('src', url);
+      image.setAttribute('data-src', '');
+    }
+  });
+};
+
 const displayPage = () => {
   const pageName = location.hash.substr(1) || 'start';
 
@@ -31,6 +41,7 @@ const displayPage = () => {
     const classes = element.classList;
     if (classes.contains(pageName)) {
       classes.add('on');
+      lazyloadImages(element);
     } else {
       classes.remove('on');
     }
@@ -63,7 +74,9 @@ const initGallery = () => {
   const gallery = document.querySelector('#startGallery');
   const children = shuffleArray([...document.querySelectorAll('#startGallery > div')])
   gallery.innerHTML = null;
-  children.forEach(child => gallery.appendChild(child));
+  children
+    .slice(0, 8)
+    .forEach(child => gallery.appendChild(child));
 };
 
 const contact = () => {
@@ -152,10 +165,19 @@ const sortTable = (tableId, columnIndex, noOfColumns) => {
   sortedRows.forEach(child => table.appendChild(child));
 }
 
+const initLinks = () => {
+  [...document.querySelectorAll('a')].forEach(a => {
+    if (a.href.indexOf('#projekte') >= 0) {
+      a.onclick = () => window.scrollTo(0, 0);
+    }
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   importHTML()
+    .then(initLinks)
     .then(initGallery)
-  displayPage();
+    .then(displayPage)
 });
 
 window.addEventListener('hashchange', displayPage);

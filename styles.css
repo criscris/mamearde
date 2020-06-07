@@ -114,7 +114,7 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 33px;
 }
@@ -122,6 +122,10 @@ h2 {
 p {
   font-size: 14px;
   line-height: 20px;
+}
+
+.page a {
+  font-size: 14px;
 }
 
 .page .profil .table {
@@ -132,12 +136,23 @@ p {
 
 .page .profil .table div {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 12px;
 }
 
 .page .kontakt label {
   font-size: 14px;
   font-weight: 700;
+}
+
+.page .kontakt .table {
+  display: grid;
+  grid-template-columns: 100px auto;
+  grid-row-gap: 10px;
+}
+
+.page .kontakt .table div {
+  font-size: 14px;
+  line-height: 12px;
 }
 
 .page .kontakt input {
@@ -233,14 +248,14 @@ p {
 .page .projekte .table {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
-  border: 1px solid rgb(221, 221, 221);
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .page .projekte .table div {
   font-size: 14px;
   line-height: 20px;
   padding: 5px;
-  border-top: 1px solid rgb(221, 221, 221);
+  border-top: 2px solid rgb(161, 161, 161);
   border-right: 1px solid rgb(221, 221, 221);
 }
 
@@ -314,4 +329,84 @@ p {
 
 .page > .on {
   display: block;
+}
+
+.projekte-detail .tableB {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.projekte-detail .tableB div {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px;
+  border-top: 2px solid rgb(127,211,248);
+  border-right: 1px solid rgb(221, 221, 221);
+}
+
+.projekte-detail .tableB div:nth-child(-n+8) {
+  border-top: none;
+  font-weight: 700; 
+}
+
+.projekte-detail .tableB div:nth-child(8n) {
+  border-right: none;
+}
+
+.projekte-detail .tableG {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.projekte-detail .tableG div {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px;
+  border-top: 2px solid rgb(171,219,143);
+  border-right: 1px solid rgb(221, 221, 221);
+}
+
+.projekte-detail .tableG div:nth-child(-n+7) {
+  border-top: none;
+  font-weight: 700; 
+}
+
+.projekte-detail .tableG div:nth-child(7n) {
+  border-right: none;
+}
+
+.projekte-detail .tableR {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.projekte-detail .tableR div {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px;
+  border-top: 2px solid rgb(223, 157, 153);
+  border-right: 1px solid rgb(221, 221, 221);
+}
+
+.projekte-detail .tableR div:nth-child(-n+7) {
+  border-top: none;
+  font-weight: 700; 
+}
+
+.projekte-detail .tableR div:nth-child(7n) {
+  border-right: none;
+}
+
+.projekte-detail .tableB2 {
+  display: grid;
+  grid-template-columns: 125px auto;
+  grid-row-gap: 0px;
+}
+
+.projekte-detail .tableB2 div {
+  font-size: 14px;
+  line-height: 20px;
 }
