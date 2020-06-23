@@ -90,7 +90,7 @@ const contact = () => {
   const response = document.querySelector('#contactForm > .response');
 
   Email.send({
-    SecureToken : "a1f880c4-f8da-4949-b43a-ff0d949b839b",
+    SecureToken : "",
     To : 'djwqidjqoi@trashmail.com',
     From : email,
     Subject : subject,
