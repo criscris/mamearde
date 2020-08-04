@@ -192,6 +192,14 @@ p {
   box-sizing: border-box;
 }
 
+.page .kontakt .hide {
+display: none
+}
+
+.page .impressum .hide {
+display: none
+}
+
 .page .start .gallery {
   display: grid;
   grid-template-columns: 230px 230px 230px 230px;
